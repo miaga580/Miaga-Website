@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SparkleTrail } from "@/components/visual/SparkleTrail";
 
-const fraunces = Fraunces({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
@@ -68,8 +68,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${fraunces.variable} ${plusJakartaSans.variable}`}>
-      <body className="antialiased selection:bg-amethyst-200 dark:selection:bg-amethyst-800 selection:text-violet-royal dark:selection:text-pearl-50">
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${spaceGrotesk.variable} ${plusJakartaSans.variable} font-sans antialiased bg-background text-text-primary selection:bg-amethyst-500/30 selection:text-amethyst-200 min-h-screen flex flex-col`}
+      >
         <ThemeProvider>
           <SparkleTrail />
           <div className="flex flex-col min-h-screen">

@@ -5,11 +5,14 @@ export const COMPANY_TAGLINE = "Engineering Elegant Digital Realities";
 export const COMPANY_DESCRIPTION =
   "Miaga Technologies LLP is an advanced technology practice specializing in end-to-end software development, mobile applications, proprietary platforms, and high-concurrency OTT video streaming architectures.";
 
-export const NAV_ITEMS: NavItem[] = [
+export const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "OTT Platforms", href: "/ott-platforms", badge: "Specialty" },
-  { label: "Products", href: "/products", badge: "In-House" },
+  {
+    label: "OTT Platforms",
+    href: "/ott-platforms",
+    badge: "SPECIALTY",
+  },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -371,9 +374,9 @@ export const TECH_CATEGORIES = [
 
 export const CONTACT_INFO = {
   company: "Miaga Technologies LLP",
-  email: "contact@miagatech.com",
-  phone: "+1 (800) 555-0199 / +91 80 4000 0000",
-  address: "[Registered Office Address: Tech Zone, Innovation Boulevard, Silicon Corridor, Bengaluru, Karnataka, India]",
-  hours: "Monday – Friday: 9:00 AM – 6:00 PM IST (24/7 Emergency SLA Support)",
+  email: "info@mohabbathmatrimony.com",
+  phone: "+91 8590185661",
+  address: "",
+  hours: "Monday – Friday: 9:00 AM – 6:00 PM IST",
   slaResponseTime: "< 2 hours for critical enterprise requests",
 };

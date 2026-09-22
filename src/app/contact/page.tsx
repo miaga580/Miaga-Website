@@ -361,19 +361,21 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20 shrink-0">
-                    <MapPin className="w-4 h-4" />
+                {CONTACT_INFO.address && (
+                  <div className="flex items-start gap-3">
+                    <div className="p-2 rounded-lg bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20 shrink-0">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
+                        Registered Office
+                      </span>
+                      <span className="text-text-secondary dark:text-lavender-medium text-xs leading-relaxed block">
+                        {CONTACT_INFO.address}
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
-                      Registered Office
-                    </span>
-                    <span className="text-text-secondary dark:text-lavender-medium text-xs leading-relaxed block">
-                      {CONTACT_INFO.address}
-                    </span>
-                  </div>
-                </div>
+                )}
 
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20 shrink-0">

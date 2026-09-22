@@ -5,7 +5,6 @@ import { BokehField } from "@/components/visual/BokehField";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { Capabilities } from "@/components/home/Capabilities";
 import { ProcessTimeline } from "@/components/home/ProcessTimeline";
-import { ProductsTeaser } from "@/components/home/ProductsTeaser";
 import { TechStack } from "@/components/home/TechStack";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { Button } from "@/components/ui/Button";
@@ -150,13 +149,10 @@ export default function HomePage() {
       {/* 5. Engineering Process (Discover → Design → Build → Test → Launch → Maintain) */}
       <ProcessTimeline />
 
-      {/* 6. Proprietary In-House Products Teaser */}
-      <ProductsTeaser />
-
-      {/* 7. Technologies Strip */}
+      {/* 6. Technologies Strip */}
       <TechStack />
 
-      {/* 8. Conversion Callout Banner */}
+      {/* 7. Conversion Callout Banner */}
       <CtaBanner />
     </div>
   );
