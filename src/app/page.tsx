@@ -7,6 +7,7 @@ import { Capabilities } from "@/components/home/Capabilities";
 import { ProcessTimeline } from "@/components/home/ProcessTimeline";
 import { TechStack } from "@/components/home/TechStack";
 import { CtaBanner } from "@/components/home/CtaBanner";
+import { Portfolio } from "@/components/home/Portfolio";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { ArrowRight, Sparkles, Shield, Cpu, Layers } from "lucide-react";
@@ -145,6 +146,9 @@ export default function HomePage() {
 
       {/* 4. Flagship Capabilities (OTT Platforms & Mobile Apps) */}
       <Capabilities />
+
+      {/* Featured Portfolio (Apps) */}
+      <Portfolio />
 
       {/* 5. Engineering Process (Discover → Design → Build → Test → Launch → Maintain) */}
       <ProcessTimeline />
