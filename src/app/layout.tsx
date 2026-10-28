@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SparkleTrail } from "@/components/visual/SparkleTrail";
+import { COMPANY_CONFIG } from "@/lib/company";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -19,22 +20,26 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Miaga Technologies LLP | Advanced Software & OTT Streaming Platforms",
+  metadataBase: new URL(COMPANY_CONFIG.siteUrl),
+  title: {
+    default: "Miaga Technologies LLP | Software & Mobile App Development",
+    template: "%s | Miaga Technologies LLP",
+  },
   description:
-    "Miaga Technologies LLP carries on the business of software development, application development, design, programming, testing, licensing, sale, distribution, maintenance of software applications, platforms, and digital solutions, including proprietary software products, OTT video streaming platforms, and mobile apps.",
+    "Miaga Technologies LLP is an Indian software and mobile app development LLP specializing in custom software development, Flutter mobile applications, and AWS cloud solutions.",
   keywords: [
     "Miaga Technologies LLP",
     "software development",
-    "OTT video streaming platforms",
     "mobile app development",
-    "iOS Android",
-    "enterprise digital solutions",
-    "software licensing and distribution",
-    "application maintenance and testing",
+    "Flutter",
+    "Python",
+    "AWS",
+    "application maintenance",
+    "Kochi Kerala IT company",
   ],
-  authors: [{ name: "Miaga Technologies LLP" }],
-  creator: "Miaga Technologies LLP",
-  publisher: "Miaga Technologies LLP",
+  authors: [{ name: COMPANY_CONFIG.legalName }],
+  creator: COMPANY_CONFIG.legalName,
+  publisher: COMPANY_CONFIG.legalName,
   formatDetection: {
     email: false,
     address: false,
@@ -45,20 +50,23 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
     apple: "/favicon.svg",
   },
+  alternates: {
+    canonical: COMPANY_CONFIG.siteUrl,
+  },
   openGraph: {
-    title: "Miaga Technologies LLP | Engineering Elegant Digital Realities",
+    title: "Miaga Technologies LLP | Software & Mobile App Development",
     description:
-      "Full-spectrum software development, high-throughput OTT streaming platforms, native mobile applications, and proprietary digital platforms.",
-    url: "https://miagatech.com",
-    siteName: "Miaga Technologies LLP",
+      "Miaga Technologies LLP is an Indian software and mobile app development LLP specializing in custom software development, Flutter mobile applications, and AWS cloud solutions.",
+    url: COMPANY_CONFIG.siteUrl,
+    siteName: COMPANY_CONFIG.legalName,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Miaga Technologies LLP | Engineering Elegant Digital Realities",
+    title: "Miaga Technologies LLP | Software & Mobile App Development",
     description:
-      "Enterprise software engineering, carrier-grade OTT platforms, and native mobile apps with ethereal precision.",
+      "Miaga Technologies LLP is an Indian software and mobile app development LLP specializing in custom software development, Flutter mobile applications, and AWS cloud solutions.",
   },
 };
 

@@ -4,34 +4,48 @@ import { GlassCard } from "@/components/visual/GlassCard";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { CrescentLogo } from "@/components/visual/CrescentLogo";
-import { Shield, Sparkles, Target, Compass, Users, CheckCircle2, ArrowRight } from "lucide-react";
+import { COMPANY_CONFIG } from "@/lib/company";
+import { Shield, Target, Compass, Code, ArrowRight, Building, Calendar, Hash, MapPin, Mail, Phone } from "lucide-react";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "About Us | Miaga Technologies LLP",
   description:
-    "Learn about Miaga Technologies LLP: our engineering mission, architectural approach, core values, and commitment to high-reliability software craftsmanship.",
+    "Learn about Miaga Technologies LLP: our corporate profile, legal registration, software development focus, and engineering principles.",
+  alternates: {
+    canonical: `${COMPANY_CONFIG.siteUrl}/about`,
+  },
+  openGraph: {
+    title: "About Us | Miaga Technologies LLP",
+    description:
+      "Learn about Miaga Technologies LLP: our corporate profile, legal registration, software development focus, and engineering principles.",
+    url: `${COMPANY_CONFIG.siteUrl}/about`,
+    siteName: COMPANY_CONFIG.legalName,
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 const VALUES = [
   {
     icon: <Target className="w-6 h-6 text-amethyst-500" />,
-    title: "Engineering Precision",
-    desc: "We reject superficial code shortcuts. Every system we design is built upon rigorous mathematical and architectural foundations, automated test suites, and transparent documentation.",
+    title: "Practical Engineering",
+    desc: "We focus on clean, reliable code that solves concrete operational needs. Every application we develop is built with tested patterns and transparent documentation.",
   },
   {
-    icon: <Sparkles className="w-6 h-6 text-amethyst-500" />,
-    title: "Ethereal Craftsmanship",
-    desc: "We believe enterprise software should evoke wonder. We merge technical resilience with sensory refinement—fluid micro-interactions, flawless contrast, and intuitive human ergonomics.",
+    icon: <Code className="w-6 h-6 text-amethyst-500" />,
+    title: "Purpose-Built Solutions",
+    desc: "We build custom software tailored around our clients' workflows, prioritizing clarity, user ergonomics, and straightforward maintenance.",
   },
   {
     icon: <Shield className="w-6 h-6 text-amethyst-500" />,
-    title: "Architectural Resilience",
-    desc: "High concurrency is not an afterthought; it is our baseline. Our systems are engineered to withstand extreme network degradation, traffic surges, and mission-critical failovers.",
+    title: "System Reliability",
+    desc: "We design software and cloud deployments with structured testing and stable configurations to ensure predictable performance.",
   },
   {
     icon: <Compass className="w-6 h-6 text-amethyst-500" />,
-    title: "Radical Transparency",
-    desc: "We engage as true engineering partners. Clients receive direct access to repositories, daily continuous integration metrics, clear deliverables, and honest technical guidance.",
+    title: "Transparent Collaboration",
+    desc: "We operate with clear communication, documented deliverables, and direct engineering access throughout every development engagement.",
   },
 ];
 
@@ -40,44 +54,36 @@ export default function AboutPage() {
     <div className="relative pb-24">
       {/* Page Header */}
       <PageHeader
-        badge="Corporate Identity"
-        title="Miaga Technologies LLP"
-        subtitle="Carrying on the business of software development, application development, design, programming, testing, licensing, sale, distribution, and maintenance of modern digital platforms."
+        badge="Corporate Profile"
+        title="About Miaga Technologies LLP"
+        subtitle={COMPANY_CONFIG.businessPurpose}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-24">
-        {/* 1. Mission & Corporate Entity Statement */}
+        {/* 1. Who We Are & Corporate Entity Statement */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2">
               <Badge variant="silver" size="sm">
                 Corporate Profile
               </Badge>
-              <span className="text-xs uppercase tracking-widest font-mono text-text-muted">
-                Entity Status: Active LLP
-              </span>
             </div>
 
             <h2 className="font-display font-bold text-3xl sm:text-4xl text-violet-royal dark:text-pearl-50 tracking-tight leading-tight">
-              A Modern Engineering House with a Distinctive Signature
+              Software & Application Development Practice
             </h2>
 
             <p className="text-sm sm:text-base text-text-secondary dark:text-lavender-medium leading-relaxed">
-              <strong>Miaga Technologies LLP</strong> was formed to bridge the divide between severe enterprise
-              architectures and ethereal digital design. We believe that mission-critical backends—video streaming
-              pipelines, transactional platforms, and native mobile apps—deserve the same elevated aesthetic and tactile
-              precision as luxury consumer interfaces.
+              <strong>{COMPANY_CONFIG.legalName}</strong> is a small software and application development limited liability partnership incorporated in Kerala, India. We carry on the business of software development, application development, designing, programming, testing, implementation, licensing, sale, distribution and maintenance of software applications, platforms and digital solutions, including in-house products, plus related IT services.
             </p>
 
             <p className="text-sm sm:text-base text-text-secondary dark:text-lavender-medium leading-relaxed">
-              Our multidisciplinary engineers and product architects oversee the entire lifecycle of software: from
-              requirements discovery and high-fidelity prototyping, to cloud-native microservices engineering,
-              automated QA regression, commercial licensing, and ongoing 24/7 SLA infrastructure maintenance.
+              Our core work focuses on creating custom software architectures, native and cross-platform mobile applications using Flutter and Python, and managing secure cloud environments hosted on AWS. We also build and maintain proprietary digital solutions such as our featured matrimony mobile application, Mohabbath Matrimony.
             </p>
 
             <div className="pt-2">
               <Button href="/contact" variant="primary" size="md" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                Initiate Corporate Dialogue
+                Contact Our Team
               </Button>
             </div>
           </div>
@@ -85,39 +91,59 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <GlassCard className="p-8 sm:p-10 border-amethyst-500/30 text-center flex flex-col items-center">
               <div className="mb-6 p-6 rounded-full bg-pearl-100 dark:bg-violet-cosmic border border-amethyst-500/20 shadow-inner">
-                <CrescentLogo size={64} showText={false} animated={true} />
+                <CrescentLogo size={64} showText={false} animated={false} />
               </div>
 
               <h3 className="font-display font-bold text-2xl text-violet-royal dark:text-pearl-50">
-                Miaga Technologies LLP
+                {COMPANY_CONFIG.legalName}
               </h3>
               <span className="text-xs font-mono uppercase tracking-widest text-amethyst-600 dark:text-amethyst-300 mt-1 block">
-                Engineering & Technology Solutions
+                Corporate Entity Details
               </span>
 
-              <div className="w-full mt-6 pt-6 border-t border-amethyst-500/15 text-left space-y-3 text-xs">
-                <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
-                  <span className="text-text-muted">Business Form:</span>
-                  <span className="font-medium text-text-primary dark:text-pearl-100">
-                    Limited Liability Partnership
+              <div className="w-full mt-6 pt-6 border-t border-amethyst-500/15 text-left space-y-3.5 text-xs">
+                <div className="flex items-start justify-between py-1 border-b border-black/5 dark:border-white/5">
+                  <span className="text-text-muted flex items-center gap-1.5">
+                    <Building className="w-3.5 h-3.5 text-amethyst-500" /> Legal Entity:
+                  </span>
+                  <span className="font-medium text-text-primary dark:text-pearl-100 text-right">
+                    {COMPANY_CONFIG.legalName}
                   </span>
                 </div>
-                <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
-                  <span className="text-text-muted">Primary Focus:</span>
-                  <span className="font-medium text-text-primary dark:text-pearl-100">
-                    Software, OTT Platforms & Mobile
+
+                <div className="flex items-start justify-between py-1 border-b border-black/5 dark:border-white/5">
+                  <span className="text-text-muted flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-amethyst-500" /> Incorporated:
+                  </span>
+                  <span className="font-medium text-text-primary dark:text-pearl-100 text-right">
+                    {COMPANY_CONFIG.incorporated}
                   </span>
                 </div>
-                <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
-                  <span className="text-text-muted">Quality Standard:</span>
-                  <span className="font-medium text-text-primary dark:text-pearl-100">
-                    Automated CI/CD & WCAG AA
+
+                <div className="flex flex-col gap-1 py-1 border-b border-black/5 dark:border-white/5">
+                  <span className="text-text-muted flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-amethyst-500" /> Registered Office:
+                  </span>
+                  <span className="font-medium text-text-primary dark:text-pearl-100 leading-relaxed">
+                    {COMPANY_CONFIG.registeredOffice}
                   </span>
                 </div>
-                <div className="flex justify-between py-1">
-                  <span className="text-text-muted">Corporate Attestation:</span>
-                  <span className="font-medium text-text-primary dark:text-pearl-100 font-mono">
-                    © Miaga Technologies LLP
+
+                <div className="flex items-start justify-between py-1 border-b border-black/5 dark:border-white/5">
+                  <span className="text-text-muted flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-amethyst-500" /> Phone:
+                  </span>
+                  <span className="font-medium text-text-primary dark:text-pearl-100 text-right">
+                    {COMPANY_CONFIG.phones.primary}
+                  </span>
+                </div>
+
+                <div className="flex items-start justify-between py-1">
+                  <span className="text-text-muted flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-amethyst-500" /> Email:
+                  </span>
+                  <span className="font-medium text-text-primary dark:text-pearl-100 text-right">
+                    {COMPANY_CONFIG.email}
                   </span>
                 </div>
               </div>
@@ -125,15 +151,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 2. Core Values */}
+        {/* 2. Guiding Principles */}
         <section>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <Badge variant="holographic" size="md" className="mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-amethyst-500" />
-              Guiding Principles
+            <Badge variant="silver" size="md" className="mb-3">
+              Principles
             </Badge>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-violet-royal dark:text-pearl-100">
-              The Tenets That Shape Our Code
+              Our Principles & Development Approach
             </h2>
           </div>
 
@@ -154,26 +179,24 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 3. Engineering Philosophy & Approach */}
+        {/* 3. Business Scope */}
         <section className="p-8 sm:p-14 rounded-3xl bg-pearl-100/70 dark:bg-violet-cosmic/70 border border-amethyst-500/20">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-amethyst-600 dark:text-amethyst-400">
-              Methodology
+              Business Scope
             </span>
             <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-violet-royal dark:text-pearl-50">
-              How We Approach Complex Engineering Challenges
+              What We Build & Deliver
             </h3>
             <p className="text-sm sm:text-base text-text-secondary dark:text-lavender-medium leading-relaxed">
-              We operate in focused, highly autonomous engineering pods consisting of senior software architects, UI/UX
-              designers, and QA automation leads. By keeping our teams lean and communication direct, we eliminate
-              bureaucratic drag and translate high-level vision into scalable production software in record time.
+              We manage digital projects from initial design and programming through deployment and ongoing support. Every project is carried out with clear specifications, practical tech choices, and responsive communication during business hours.
             </p>
 
             <div className="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
               {[
-                { title: "Domain-Driven Design", desc: "Clean boundaries between core logic and infrastructure." },
-                { title: "Continuous Delivery", desc: "Automated pipelines testing every commit before staging." },
-                { title: "Zero Filler Code", desc: "Maintainable, concise, and documented solutions." },
+                { title: "Custom Software", desc: "Backend services and data solutions built with Python and AWS." },
+                { title: "Mobile & Web Apps", desc: "Cross-platform mobile apps built with Flutter for Android and iOS." },
+                { title: "Support & Updates", desc: "Regular defect remediation and platform maintenance." },
               ].map((item) => (
                 <div key={item.title} className="p-4 rounded-xl bg-white/60 dark:bg-white/5 border border-amethyst-500/15">
                   <h4 className="font-display font-bold text-xs sm:text-sm text-violet-royal dark:text-pearl-100 mb-1">

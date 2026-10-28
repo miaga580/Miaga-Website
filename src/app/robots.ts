@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { COMPANY_CONFIG } from "@/lib/company";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://miagatech.com/sitemap.xml",
+    sitemap: `${COMPANY_CONFIG.siteUrl}/sitemap.xml`,
   };
 }

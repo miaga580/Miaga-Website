@@ -5,6 +5,7 @@ interface CrescentLogoProps {
   size?: number;
   showText?: boolean;
   animated?: boolean;
+  showLlpBadge?: boolean;
 }
 
 export const CrescentLogo: React.FC<CrescentLogoProps> = ({
@@ -12,6 +13,7 @@ export const CrescentLogo: React.FC<CrescentLogoProps> = ({
   size = 40,
   showText = true,
   animated = false,
+  showLlpBadge = false,
 }) => {
   return (
     <div className={`inline-flex items-center gap-3 select-none ${className}`}>
@@ -102,15 +104,17 @@ export const CrescentLogo: React.FC<CrescentLogoProps> = ({
       {showText && (
         <div className="flex flex-col">
           <div className="flex items-center gap-1.5">
-            <span className="font-display font-bold tracking-wide text-lg sm:text-xl text-violet-royal dark:text-pearl-100">
-              MIAGA
+            <span className="font-display font-bold tracking-tight text-lg sm:text-xl text-violet-royal dark:text-pearl-100">
+              Miaga Technologies
             </span>
-            <span className="text-[10px] uppercase font-semibold tracking-widest px-1.5 py-0.5 rounded bg-amethyst-500/15 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20">
-              LLP
-            </span>
+            {showLlpBadge && (
+              <span className="text-[10px] uppercase font-semibold tracking-wider px-1.5 py-0.5 rounded bg-amethyst-500/15 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20">
+                LLP
+              </span>
+            )}
           </div>
           <span className="text-[10px] tracking-wider uppercase font-medium text-text-secondary dark:text-lavender-medium">
-            Technologies
+            Software & Applications
           </span>
         </div>
       )}

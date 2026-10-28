@@ -1,14 +1,12 @@
 import React from "react";
-import Link from "next/link";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { GlassCard } from "@/components/visual/GlassCard";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import { SERVICES } from "@/lib/constants";
+import { COMPANY_CONFIG } from "@/lib/company";
 import {
   Code2,
   Smartphone,
-  Tv,
   Palette,
   ShieldCheck,
   GitMerge,
@@ -19,17 +17,29 @@ import {
   Cpu,
   Layers,
 } from "lucide-react";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Engineering Services | Miaga Technologies LLP",
+export const metadata: Metadata = {
+  title: "Services | Miaga Technologies LLP",
   description:
-    "Explore our full suite of digital engineering capabilities: custom enterprise software, native mobile apps, OTT video streaming systems, UI/UX design, QA testing, software licensing, and 24/7 maintenance.",
+    "Explore our software development, mobile application development, UI/UX design, QA testing, integration, and platform maintenance services.",
+  alternates: {
+    canonical: `${COMPANY_CONFIG.siteUrl}/services`,
+  },
+  openGraph: {
+    title: "Services | Miaga Technologies LLP",
+    description:
+      "Explore our software development, mobile application development, UI/UX design, QA testing, integration, and platform maintenance services.",
+    url: `${COMPANY_CONFIG.siteUrl}/services`,
+    siteName: COMPANY_CONFIG.legalName,
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 const ICON_MAP: Record<string, React.ReactNode> = {
   Code2: <Code2 className="w-8 h-8" />,
   Smartphone: <Smartphone className="w-8 h-8" />,
-  Tv: <Tv className="w-8 h-8" />,
   Palette: <Palette className="w-8 h-8" />,
   ShieldCheck: <ShieldCheck className="w-8 h-8" />,
   GitMerge: <GitMerge className="w-8 h-8" />,
@@ -42,16 +52,16 @@ export default function ServicesPage() {
     <div className="relative pb-24">
       {/* Page Header */}
       <PageHeader
-        badge="Enterprise Service Matrix"
-        title="Full-Lifecycle Software Engineering & Platforms"
-        subtitle="Miaga Technologies LLP delivers precision-crafted digital solutions, from carrier-grade video streaming infrastructure to native mobile ecosystems and 24/7 mission-critical operations."
+        badge="Our Services"
+        title="Software & Application Development Services"
+        subtitle={COMPANY_CONFIG.businessPurpose}
       >
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Button href="/contact" variant="primary" size="md" rightIcon={<ArrowRight className="w-4 h-4" />}>
-            Request Service Proposal
+            Contact Us for Inquiries
           </Button>
-          <Button href="/ott-platforms" variant="secondary" size="md">
-            View OTT Dedicated Showcase
+          <Button href="/#apps" variant="secondary" size="md">
+            View Our Work
           </Button>
         </div>
       </PageHeader>
@@ -60,7 +70,6 @@ export default function ServicesPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         <div className="space-y-16">
           {SERVICES.map((service, index) => {
-            const isEven = index % 2 === 0;
             return (
               <div
                 key={service.id}
@@ -77,7 +86,7 @@ export default function ServicesPage() {
                         </div>
                         <div>
                           <span className="font-mono text-xs font-semibold text-text-muted">
-                            Capability #0{index + 1}
+                            Service #0{index + 1}
                           </span>
                           <h2 className="font-display font-bold text-2xl sm:text-3xl text-violet-royal dark:text-pearl-50">
                             {service.title}
@@ -93,7 +102,7 @@ export default function ServicesPage() {
                       <div className="space-y-2 pt-2">
                         <span className="text-xs uppercase tracking-wider font-bold text-violet-royal dark:text-pearl-100 flex items-center gap-1.5">
                           <Cpu className="w-4 h-4 text-amethyst-500" />
-                          Architectural Advantages
+                          Key Advantages
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {service.benefits.map((benefit) => (
@@ -108,7 +117,7 @@ export default function ServicesPage() {
                       {/* Tech stack */}
                       <div className="pt-2">
                         <span className="text-xs uppercase tracking-wider font-bold text-text-muted block mb-2">
-                          Production Stacks
+                          Technologies Used
                         </span>
                         <div className="flex flex-wrap gap-2">
                           {service.technologies.map((tech) => (
@@ -129,7 +138,7 @@ export default function ServicesPage() {
                         <div className="flex items-center gap-2 mb-4">
                           <Layers className="w-4 h-4 text-amethyst-500" />
                           <h3 className="text-xs uppercase tracking-wider font-bold text-violet-royal dark:text-pearl-100">
-                            Engineered Deliverables
+                            Standard Deliverables
                           </h3>
                         </div>
 
@@ -148,23 +157,14 @@ export default function ServicesPage() {
 
                       <div className="pt-4 border-t border-amethyst-500/15 flex flex-col gap-3">
                         <Button
-                          href={`/contact?service=${service.id}`}
+                          href="/contact"
                           variant="primary"
                           size="md"
                           className="w-full"
                           rightIcon={<ArrowRight className="w-4 h-4" />}
                         >
-                          Inquire for {service.title.split(" ")[0]}
+                          Inquire About {service.title}
                         </Button>
-
-                        {service.id === "ott-platforms" && (
-                          <Link
-                            href="/ott-platforms"
-                            className="text-center text-xs font-semibold text-amethyst-600 dark:text-amethyst-400 hover:underline"
-                          >
-                            Explore Dedicated Streaming Interactive Sandbox →
-                          </Link>
-                        )}
                       </div>
                     </div>
                   </div>

@@ -10,7 +10,27 @@ import { CtaBanner } from "@/components/home/CtaBanner";
 import { Portfolio } from "@/components/home/Portfolio";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { ArrowRight, Sparkles, Shield, Cpu, Layers } from "lucide-react";
+import { COMPANY_CONFIG } from "@/lib/company";
+import { ArrowRight, Code, Smartphone, Cloud } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Miaga Technologies LLP | Software & Mobile App Development",
+  description:
+    "Miaga Technologies LLP is an Indian software and mobile app development LLP specializing in custom software, Flutter mobile applications, and cloud integration.",
+  alternates: {
+    canonical: COMPANY_CONFIG.siteUrl,
+  },
+  openGraph: {
+    title: "Miaga Technologies LLP | Software & Mobile App Development",
+    description:
+      "Miaga Technologies LLP is an Indian software and mobile app development LLP specializing in custom software, Flutter mobile applications, and cloud integration.",
+    url: COMPANY_CONFIG.siteUrl,
+    siteName: COMPANY_CONFIG.legalName,
+    locale: "en_US",
+    type: "website",
+  },
+};
 
 export default function HomePage() {
   return (
@@ -25,22 +45,17 @@ export default function HomePage() {
             {/* Left Hero Narrative */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2">
-                <Badge variant="holographic" size="md">
-                  <Sparkles className="w-3.5 h-3.5 text-amethyst-500" />
-                  Ethereal Tech Craftsmanship
+                <Badge variant="silver" size="md">
+                  Software & App Development LLP
                 </Badge>
               </div>
 
-              <h1 className="font-display font-bold text-[26px] sm:text-5xl lg:text-7xl text-violet-royal dark:text-pearl-50 tracking-tight leading-[1.22] sm:leading-[1.08]">
-                Engineering Digital Realities<br className="hidden sm:hidden" /> with{" "}
-                <span className="text-shimmer italic font-normal">Ethereal</span>{" "}
-                Precision.
+              <h1 className="font-display font-bold text-[28px] sm:text-5xl lg:text-6xl text-violet-royal dark:text-pearl-50 tracking-tight leading-[1.2] sm:leading-[1.1]">
+                Software and Application Development for Modern Businesses.
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-text-secondary dark:text-lavender-medium max-w-2xl font-normal leading-relaxed">
-                Miaga Technologies LLP builds mission-critical software architectures, carrier-grade OTT video
-                streaming ecosystems, tactile mobile applications, and proprietary digital platforms for enterprises
-                worldwide.
+                {COMPANY_CONFIG.legalName} is a software and application development firm based in Kochi, Kerala. We build custom software platforms, native and cross-platform mobile apps, and maintain secure digital solutions for our clients.
               </p>
 
               {/* CTAs */}
@@ -51,40 +66,40 @@ export default function HomePage() {
                   size="lg"
                   rightIcon={<ArrowRight className="w-4 h-4" />}
                 >
-                  Start a Project
+                  Contact Us
                 </Button>
 
-                <Button href="#services" variant="secondary" size="lg">
-                  See Our Work & Capabilities
+                <Button href="/services" variant="secondary" size="lg">
+                  Explore Services
                 </Button>
               </div>
 
-              {/* Trust Indicators (Honest Architecture Benchmarks with Explicit Placeholders) */}
+              {/* Core Pillars */}
               <div className="pt-6 border-t border-amethyst-500/15 grid grid-cols-3 gap-2 sm:gap-4 max-w-lg mx-auto lg:mx-0 text-left">
                 <div>
-                  <span className="block text-base sm:text-xl font-display font-bold text-violet-royal dark:text-pearl-50">
-                    99.99%
+                  <span className="block text-base sm:text-lg font-display font-bold text-violet-royal dark:text-pearl-50">
+                    Flutter
                   </span>
                   <span className="text-[10px] sm:text-[11px] text-text-muted leading-tight block">
-                    Streaming Uptime Architecture
+                    Android & iOS Apps
                   </span>
                 </div>
 
                 <div>
-                  <span className="block text-base sm:text-xl font-display font-bold text-violet-royal dark:text-pearl-50">
-                    60 FPS
+                  <span className="block text-base sm:text-lg font-display font-bold text-violet-royal dark:text-pearl-50">
+                    Python
                   </span>
                   <span className="text-[10px] sm:text-[11px] text-text-muted leading-tight block">
-                    Fluid Native UI Execution
+                    Backend & APIs
                   </span>
                 </div>
 
                 <div>
-                  <span className="block text-base sm:text-xl font-display font-bold text-violet-royal dark:text-pearl-50">
-                    &lt; 1.5s
+                  <span className="block text-base sm:text-lg font-display font-bold text-violet-royal dark:text-pearl-50">
+                    AWS
                   </span>
                   <span className="text-[10px] sm:text-[11px] text-text-muted leading-tight block">
-                    Glass-to-Glass Live Latency
+                    Cloud Infrastructure
                   </span>
                 </div>
               </div>
@@ -98,43 +113,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Short Executive Intro */}
+      {/* 2. Executive Overview */}
       <section className="relative py-16 border-y border-amethyst-500/15 bg-white/40 dark:bg-violet-deep/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             <div className="flex flex-col items-center md:items-start gap-2">
               <div className="p-2.5 rounded-xl bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20">
-                <Shield className="w-5 h-5" />
+                <Code className="w-5 h-5" />
               </div>
               <h4 className="font-display font-bold text-lg text-violet-royal dark:text-pearl-100">
-                Architectural Integrity
+                Custom Software
               </h4>
               <p className="text-xs sm:text-sm text-text-secondary dark:text-lavender-medium leading-relaxed">
-                Clean, documented, and modular architectures designed for scale, resilience, and unbending data security.
+                Clean, documented, and modular architectures designed around your specific business processes and workflows.
               </p>
             </div>
 
             <div className="flex flex-col items-center md:items-start gap-2">
               <div className="p-2.5 rounded-xl bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20">
-                <Cpu className="w-5 h-5" />
+                <Smartphone className="w-5 h-5" />
               </div>
               <h4 className="font-display font-bold text-lg text-violet-royal dark:text-pearl-100">
-                High-Concurrency Power
+                Mobile & Web Apps
               </h4>
               <p className="text-xs sm:text-sm text-text-secondary dark:text-lavender-medium leading-relaxed">
-                Specialized in massive throughput: million-user video concurrency, sub-second API responses, and low-memory mobile footprints.
+                Cross-platform mobile applications for Android and iOS using Flutter, delivering responsive experiences across devices.
               </p>
             </div>
 
             <div className="flex flex-col items-center md:items-start gap-2">
               <div className="p-2.5 rounded-xl bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20">
-                <Layers className="w-5 h-5" />
+                <Cloud className="w-5 h-5" />
               </div>
               <h4 className="font-display font-bold text-lg text-violet-royal dark:text-pearl-100">
-                Turnkey Lifecycle Support
+                Ongoing Maintenance
               </h4>
               <p className="text-xs sm:text-sm text-text-secondary dark:text-lavender-medium leading-relaxed">
-                Comprehensive ownership from UX prototyping, CI/CD, and multi-DRM licensing to 24/7 SLA operations.
+                Application updates, defect remediation, and infrastructure support provided during standard business hours.
               </p>
             </div>
           </div>
@@ -144,19 +159,19 @@ export default function HomePage() {
       {/* 3. Core Services Overview */}
       <ServicesGrid />
 
-      {/* 4. Flagship Capabilities (OTT Platforms & Mobile Apps) */}
+      {/* 4. Core Capabilities */}
       <Capabilities />
 
-      {/* Featured Portfolio (Apps) */}
+      {/* 5. Featured Portfolio (Our Work) */}
       <Portfolio />
 
-      {/* 5. Engineering Process (Discover → Design → Build → Test → Launch → Maintain) */}
+      {/* 6. Engineering Process */}
       <ProcessTimeline />
 
-      {/* 6. Technologies Strip */}
+      {/* 7. Technologies Strip */}
       <TechStack />
 
-      {/* 7. Conversion Callout Banner */}
+      {/* 8. Conversion Callout Banner */}
       <CtaBanner />
     </div>
   );

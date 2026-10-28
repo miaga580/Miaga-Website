@@ -1,382 +1,246 @@
-import { NavItem, ServiceItem, ProductItem, ProcessStep } from "@/types";
+import { NavItem, ServiceItem, ProcessStep } from "@/types";
+import { COMPANY_CONFIG } from "./company";
 
-export const COMPANY_NAME = "Miaga Technologies LLP";
-export const COMPANY_TAGLINE = "Engineering Elegant Digital Realities";
+export const COMPANY_NAME = COMPANY_CONFIG.legalName;
+export const COMPANY_TAGLINE = "Software & Application Development Services";
 export const COMPANY_DESCRIPTION =
-  "Miaga Technologies LLP is an advanced technology practice specializing in end-to-end software development, mobile applications, proprietary platforms, and high-concurrency OTT video streaming architectures.";
+  "Miaga Technologies LLP is an Indian software and application development limited liability partnership providing end-to-end digital engineering, application design, testing, integration, and platform maintenance.";
 
-export const NAV_ITEMS = [
+export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  {
-    label: "OTT Platforms",
-    href: "/ott-platforms",
-    badge: "SPECIALTY",
-  },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const SERVICES: ServiceItem[] = [
   {
-    id: "custom-software",
-    title: "Custom Software Development",
+    id: "software-development",
+    title: "Software Development",
     shortDesc:
-      "Enterprise-grade web platforms, scalable microservices, distributed cloud backends, and bespoke business systems tailored to complex domain logic.",
+      "We design, build, and deploy reliable software platforms engineered around your specific business requirements and workflows.",
     fullDesc:
-      "We design and build resilient digital foundations from the ground up. Whether architecting high-throughput transactional APIs, modular microservices, or mission-critical enterprise workflows, our engineers adhere to strict domain-driven design, clean architecture, and automated CI/CD pipelines.",
+      "We design, build, and deploy reliable software platforms engineered around your specific business requirements and workflows. Our development process prioritizes clean architecture, modular system components, and clear documentation. We build backend systems and platform services that integrate cleanly with your operational environment.",
     icon: "Code2",
     deliverables: [
-      "Distributed Microservices Architecture",
-      "Cloud-Native Backend Infrastructure",
-      "High-Performance REST & GraphQL APIs",
-      "Enterprise Workflow Automation Systems",
-      "Database Modeling & Sharding Optimization",
+      "Custom Backend Architectures",
+      "System Integration APIs",
+      "Data Modeling & Storage",
+      "Technical Documentation",
     ],
-    technologies: ["Node.js", "Go", "Python", "PostgreSQL", "Redis", "Docker", "Kubernetes", "AWS"],
+    technologies: ["Python", "AWS"],
     benefits: [
-      "Fault-tolerant, horizontally scalable architecture",
-      "Strict data integrity and compliance posture",
-      "Maintainable, cleanly documented codebases",
+      "Tailored to exact organizational workflows",
+      "Clean, modular, and maintainable codebase",
+      "Scalable cloud backend design",
     ],
   },
   {
-    id: "mobile-apps",
+    id: "web-mobile-apps",
     title: "Web & Mobile App Development",
     shortDesc:
-      "Native iOS and Android applications along with reactive modern web frontends engineered for fluid 60fps animations and offline capability.",
+      "We create practical, responsive mobile and web applications for Android, iOS, and modern web browsers.",
     fullDesc:
-      "From native iOS (Swift) and Android (Kotlin) flagship experiences to versatile cross-platform ecosystems (Flutter & React Native), we craft mobile solutions that combine pixel-perfect fluid UI with deep device integration, biometrics, push notifications, and offline data sync.",
+      "We create practical, responsive mobile and web applications for Android, iOS, and modern web browsers. Using Flutter and proven web frameworks, we deliver consistent user experiences across platforms from a single, maintainable codebase. Every application is configured for security, responsiveness, and straightforward platform distribution.",
     icon: "Smartphone",
     deliverables: [
-      "Native iOS Apps (Swift / SwiftUI)",
-      "Native Android Apps (Kotlin / Jetpack Compose)",
-      "Cross-Platform Solutions (Flutter / React Native)",
-      "Offline-First Data Synchronization",
-      "App Store & Google Play Launch Management",
+      "Cross-Platform Mobile Apps (Android & iOS)",
+      "Responsive Web Applications",
+      "RESTful API & Backend Connections",
+      "App Store & Play Store Packaging",
     ],
-    technologies: ["Swift", "SwiftUI", "Kotlin", "Flutter", "React Native", "Next.js", "TypeScript"],
+    technologies: ["Flutter", "Python", "AWS"],
     benefits: [
-      "Hardware-accelerated performance & 60fps UI",
-      "Intuitive tactile touch gestures and haptics",
-      "Seamless background synchronization & caching",
-    ],
-  },
-  {
-    id: "ott-platforms",
-    title: "OTT / Video Streaming Platforms",
-    shortDesc:
-      "End-to-end video streaming solutions featuring ultra-low latency ingestion, adaptive bitrate delivery, multi-DRM security, and custom player SDKs.",
-    fullDesc:
-      "Our premier practice area: we architect carrier-grade OTT and VOD streaming platforms capable of scaling to millions of concurrent viewers. We build multi-screen frontends for Smart TVs, Web, and Mobile, backed by resilient video CMS, live transcoding, subscription billing, and real-time QoE telemetry.",
-    icon: "Tv",
-    deliverables: [
-      "Live & VOD Video Ingestion & Transcoding",
-      "Low-Latency HLS & MPEG-DASH Streaming",
-      "Multi-DRM Integration (Widevine, FairPlay, PlayReady)",
-      "Smart TV Apps (Tizen, webOS, Android TV, Apple TV)",
-      "Monetization Engines (SVOD, AVOD with SSAI, TVOD)",
-    ],
-    technologies: ["HLS / DASH", "FFmpeg", "AWS MediaLive", "CMAF", "Video.js / Shaka", "Shaka Player", "WebRTC"],
-    benefits: [
-      "Sub-second live streaming latency",
-      "Buffer-free adaptive bitrate switching",
-      "Enterprise DRM protecting premium content",
+      "Unified codebase across Android and iOS",
+      "Consistent UI/UX across form factors",
+      "Direct device feature integration",
     ],
   },
   {
     id: "ui-ux-design",
-    title: "UI/UX & Experience Design",
+    title: "UI/UX Design",
     shortDesc:
-      "Sophisticated design systems, human-centered UX research, interactive prototypes, and production design tokens tuned for digital elegance.",
+      "We craft intuitive, user-friendly interfaces and digital workflows tailored to user needs and business objectives.",
     fullDesc:
-      "Design at Miaga combines aesthetic wonder with rigorous usability. We map user journeys, construct cohesive multi-brand design systems, and prototype intricate micro-interactions, ensuring every digital touchpoint feels intuitive, polished, and distinctly memorable.",
+      "We craft intuitive, user-friendly interfaces and digital workflows tailored to user needs and business objectives. We produce interactive prototypes, wireframes, and structured design guidelines that ensure clarity across all application screens. Our designs focus on usability, visual hierarchy, and efficient user task completion.",
     icon: "Palette",
     deliverables: [
-      "Comprehensive Multi-Brand Design Systems",
-      "User Research & Quantitative Journey Mapping",
-      "High-Fidelity Interactive Figma Prototypes",
-      "Accessible Micro-Interactions & Motion Design",
-      "Production-Ready Design Tokens & Guidelines",
+      "Interactive Prototypes & Wireframes",
+      "UI Component Kits & Style Guides",
+      "User Journey & Task Flow Mapping",
+      "Design-to-Development Handoff Assets",
     ],
-    technologies: ["Figma", "Design Tokens", "Framer", "Prototyping", "WCAG 2.1 AA", "Storybook"],
+    technologies: ["Figma"],
     benefits: [
-      "Accelerated engineering velocity via tokens",
-      "Frictionless user flows reducing churn",
-      "Distinctive, award-grade visual identity",
+      "Intuitive navigation and clear user flows",
+      "Standardized UI components for faster development",
+      "User-tested layouts and interactions",
     ],
   },
   {
     id: "testing-qa",
     title: "Testing & Quality Assurance",
     shortDesc:
-      "Automated regression suites, load testing for concurrency spikes, device matrix validation, and deep security audits.",
+      "We conduct structured functional, performance, and compatibility testing across devices and browsers.",
     fullDesc:
-      "Reliability is non-negotiable. Our dedicated QA engineers build automated continuous testing suites covering end-to-end user flows, API contracts, cross-browser compatibility, real-device mobile farms, and heavy-concurrency stress testing.",
+      "We conduct structured functional, performance, and compatibility testing across devices and browsers. Our QA practice identifies software defects, usability snags, and edge cases prior to deployment. We ensure that your digital solutions perform reliably under regular operational conditions.",
     icon: "ShieldCheck",
     deliverables: [
-      "Automated End-to-End Regression Suites",
-      "High-Concurrency Load & Stress Testing",
-      "Mobile Device Lab Matrix Validation",
-      "Security Audits & Vulnerability Assessments",
-      "Automated CI/CD Quality Gate Integration",
+      "Functional & Regression Test Plans",
+      "Mobile Device & OS Compatibility Verification",
+      "API & Integration Validation",
+      "Detailed Defect & Resolution Tracking",
     ],
-    technologies: ["Playwright", "Cypress", "Appium", "k6", "Jest", "SonarQube", "OWASP ZAP"],
+    technologies: ["Python"],
     benefits: [
-      "Zero-downtime releases with verified stability",
-      "Early defect detection minimizing technical debt",
-      "Predictable performance during traffic spikes",
+      "Early defect discovery and resolution",
+      "Consistent cross-device stability",
+      "Clear test documentation and audit trails",
     ],
   },
   {
     id: "implementation-integration",
     title: "Implementation & Integration",
     shortDesc:
-      "Smooth enterprise deployment, legacy system migration, ERP/CRM bridges, and cloud infrastructure orchestration.",
+      "We deploy and integrate software systems into your existing technology landscape and third-party services.",
     fullDesc:
-      "We orchestrate complex enterprise rollouts without disrupting existing business operations. Our integration engineers configure hybrid-cloud environments, modernize legacy codebases, and establish high-throughput data pipelines linking internal systems with external partners.",
+      "We deploy and integrate software systems into your existing technology landscape and third-party services. We configure secure cloud hosting environments, manage data setup, and establish reliable API connections. Our focus is ensuring smooth transitions and uninterrupted business workflows.",
     icon: "GitMerge",
     deliverables: [
-      "Enterprise Cloud Migration & Setup",
-      "Legacy Code Modernization & Refactoring",
-      "ERP / CRM / Payment Gateway Integration",
-      "Automated CI/CD Deployment Pipelines",
-      "Zero-Downtime Data Migration & Sync",
+      "Cloud Hosting Setup & Configuration",
+      "Third-Party API & Service Connections",
+      "Database Setup & Data Migration",
+      "Deployment Runbooks & Verification",
     ],
-    technologies: ["AWS", "Google Cloud", "Terraform", "Docker", "Stripe", "Salesforce API", "Kafka"],
+    technologies: ["AWS", "Python"],
     benefits: [
-      "Seamless cutovers without operational pause",
-      "Robust data synchronization and idempotency",
-      "Infrastructure-as-Code for reproducible setups",
+      "Smooth system setup and onboarding",
+      "Reliable connectivity with external services",
+      "Documented deployment procedures",
     ],
   },
   {
-    id: "software-licensing",
+    id: "software-licensing-distribution",
     title: "Software Licensing & Distribution",
     shortDesc:
-      "Commercial distribution frameworks, enterprise seat management, cryptographic license keys, and compliant packaging.",
+      "We package and distribute software solutions under clear commercial licensing terms and secure distribution models.",
     fullDesc:
-      "For software creators and enterprise platform operators, we design robust software licensing infrastructures. We implement cryptographic license verification, multi-tenant subscription tiers, seat-based access management, and automated update delivery networks.",
+      "We package and distribute software solutions under clear commercial licensing terms and secure distribution models. We assist clients with application delivery pipelines, entitlement validation, and managed release packaging. This ensures your software reaches users securely and under compliant licensing structures.",
     icon: "KeyRound",
     deliverables: [
-      "Cryptographic License Generation & Validation",
-      "Multi-Tenant Seat & Quota Enforcement",
-      "Digital Rights & IP Protection Architecture",
-      "Automated Software Distribution & OTA Updates",
-      "Compliance & Usage Analytics Telemetry",
+      "Commercial Software Packaging",
+      "License Validation & Access Controls",
+      "Release Packaging & Distribution Setup",
+      "Licensing Terms Documentation",
     ],
-    technologies: ["Ed25519 / RSA Cryptography", "OAuth 2.0", "Stripe Billing", "Electron Auto-Updater", "Docker Hub"],
+    technologies: ["Python", "AWS"],
     benefits: [
-      "Tamper-resistant license verification",
-      "Frictionless self-serve tier upgrades",
-      "Automated over-the-air binary distribution",
+      "Secure application release processes",
+      "Clear licensing terms and compliance",
+      "Controlled software distribution channels",
     ],
   },
   {
     id: "maintenance-support",
-    title: "Maintenance & 24/7 Support",
+    title: "Maintenance & Support",
     shortDesc:
-      "Proactive infrastructure monitoring, SLA-backed incident response, security patch management, and ongoing feature iterations.",
+      "We provide ongoing application updates, routine bug fixes, and infrastructure maintenance to keep systems current.",
     fullDesc:
-      "Software longevity demands continuous care. Miaga provides dedicated DevOps and engineering support to monitor uptime, apply critical security patches, optimize cloud expenditures, and continually refine platform features to meet evolving business needs.",
+      "We provide ongoing application updates, routine bug fixes, and infrastructure maintenance to keep systems current. As operational demands and external platforms evolve, our team manages updates, environment health, and feature refinements during standard business hours. We help sustain system reliability and code quality over time.",
     icon: "Headphones",
     deliverables: [
-      "24/7 Automated Telemetry & Uptime Monitoring",
-      "SLA-Backed Rapid Incident Response",
-      "Quarterly Security Audits & Dependency Patching",
-      "Cloud Infrastructure Cost Optimization",
-      "Ongoing Feature Enhancement Sprints",
+      "Routine Software & Security Updates",
+      "Defect Remediation & Bug Fixes",
+      "Cloud Environment Health Checks",
+      "Scheduled Feature Refinements",
     ],
-    technologies: ["Datadog", "Prometheus", "Grafana", "AWS CloudWatch", "PagerDuty", "Terraform"],
+    technologies: ["AWS", "Python"],
     benefits: [
-      "Guaranteed 99.95%+ uptime SLAs",
-      "Predictable operational expenditures",
-      "Proactive remediation before users notice issues",
+      "Sustained platform stability and hygiene",
+      "Structured updates for OS and library changes",
+      "Direct technical assistance during business hours",
     ],
   },
 ];
 
-export const PRODUCTS: ProductItem[] = [
-  {
-    id: "streamcore-ott",
-    name: "[Product: StreamCore OTT Engine]",
-    codeName: "SC-9000",
-    tagline: "Carrier-Grade Video Orchestration & Dynamic Ingestion Framework",
-    description:
-      "A modular, proprietary video streaming backbone engineered for media broadcasters and OTT operators. Features automated live-to-VOD packaging, server-side ad insertion (SSAI), and multi-CDN load balancing.",
-    status: "In Beta",
-    capabilities: [
-      "Ultra-low latency CMAF & chunked HLS/DASH packaging",
-      "Dynamic Server-Side Ad Insertion (SSAI) with SCTE-35 markers",
-      "Multi-DRM key rotation across Widevine, FairPlay, and PlayReady",
-      "Automated subtitle and multi-audio language track stitching",
-      "Sub-second failover across geographically distributed origin servers",
-    ],
-    techStack: ["Rust", "FFmpeg", "Go", "AWS MediaPackage", "WebAssembly"],
-    specs: {
-      "Latency Target": "< 1.5s Glass-to-Glass",
-      "Concurrency Tested": "[1.2M+ Concurrent Streams]",
-      "Target Resolution": "Up to 8K HDR10+ / Dolby Vision",
-      "Licensing Model": "[Enterprise On-Prem & Managed Cloud]",
-    },
-  },
-  {
-    id: "aurapulse-qa",
-    name: "[Product: AuraPulse QA Automation]",
-    codeName: "AP-V2",
-    tagline: "Autonomous Concurrency & Video QoE Benchmarking Suite",
-    description:
-      "A proprietary quality assurance harness purpose-built for high-concurrency digital platforms. Simulates millions of synthetic users, measuring network jitter, video buffer ratios, and API latency in real time.",
-    status: "In Beta",
-    capabilities: [
-      "Synthetic video player emulation with QoS/QoE telemetry capture",
-      "Automated regression pipelines integrated with GitHub Actions and GitLab",
-      "Dynamic latency degradation and packet-loss simulation",
-      "Real-time visual reports with automatic root-cause bottleneck detection",
-    ],
-    techStack: ["TypeScript", "Python", "k6 Engine", "ClickHouse", "React"],
-    specs: {
-      "Simulation Capacity": "[500,000 Virtual Users / Node]",
-      "Metrics Captured": "Buffer Ratio, TTFB, Startup Latency, Bitrate Switches",
-      "Integrations": "[Jira, Slack, Datadog, CI/CD]",
-      "Deployment": "[Docker Containerized / Helm Chart]",
-    },
-  },
-  {
-    id: "omnisync-mobile",
-    name: "[Product: OmniSync Mobile Framework]",
-    codeName: "OS-MOBILE",
-    tagline: "Ultra-Lightweight Distributed Offline-First State Engine",
-    description:
-      "An in-house mobile framework accelerating iOS and Android app engineering. Provides bi-directional deterministic offline caching, CRDT conflict resolution, and instant background sync.",
-    status: "Enterprise Active",
-    capabilities: [
-      "Conflict-free replicated data types (CRDT) for seamless offline editing",
-      "Zero-latency local reads with transactional SQLite and Room/CoreData wrappers",
-      "Encrypted peer-to-peer data synchronization over local networks (BLE/Wi-Fi)",
-      "Minimal binary footprint (< 250KB added to target app bundle)",
-    ],
-    techStack: ["Swift", "Kotlin", "C++ Core", "SQLite", "Protobuf"],
-    specs: {
-      "Sync Overhead": "< 12ms Round-Trip",
-      "Security": "AES-256-GCM At Rest & TLS 1.3 In Flight",
-      "Footprint": "[< 250 KB Binary Overhead]",
-      "Compatibility": "iOS 15+, Android 8.0+",
-    },
-  },
-  {
-    id: "nexalicensing",
-    name: "[Product: NexaLicensing Manager]",
-    codeName: "NL-ENTERPRISE",
-    tagline: "Cryptographic Software Entitlement & Distribution Platform",
-    description:
-      "A turnkey licensing infrastructure enabling software companies to securely issue, revoke, and verify offline and online licenses for desktop, mobile, and enterprise appliances.",
-    status: "Proprietary R&D",
-    capabilities: [
-      "Asymmetric Ed25519 digital signatures preventing license tampering",
-      "Hardware-fingerprinted node locking with graceful hardware change allowances",
-      "Automated over-the-air update delta distribution with integrity checksums",
-      "Seat management dashboard with enterprise SSO (SAML / OIDC)",
-    ],
-    techStack: ["Go", "Rust", "Next.js", "PostgreSQL", "Tailscale API"],
-    specs: {
-      "Verification Speed": "< 0.8ms Local Verification",
-      "Encryption": "Ed25519 / ChaCha20-Poly1305",
-      "Supported OS": "Windows, macOS, Linux, Embedded Linux",
-      "Availability": "[Private Enterprise Alpha]",
-    },
-  },
-];
+export const MOHABBATH_PORTFOLIO = {
+  title: "Mohabbath Matrimony",
+  description:
+    "A matrimony app for Android and iOS, currently in development, built with Flutter and Python. Owned and operated by Miaga Technologies LLP.",
+  url: "https://www.mohabbathmatrimony.com",
+  technologies: ["Flutter", "Python"],
+  status: "In Development",
+};
 
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: "Phase 01",
     number: "01",
-    title: "Discover & Architect",
-    tagline: "Understanding core objectives & engineering boundaries",
+    title: "Requirements & Discovery",
+    tagline: "Clarifying business objectives and technical requirements",
     description:
-      "We unpack your business requirements, analyze concurrency demands, examine technical constraints, and draft formal architecture specifications with precise security and scalability roadmaps.",
-    deliverables: ["Technical Architecture Document", "System Data Flow Diagrams", "Infrastructure Cost Projections"],
+      "We consult closely with your team to review project goals, system requirements, data workflows, and user expectations before drafting a clear delivery roadmap.",
+    deliverables: ["Scope & Technical Outline", "Workflow Diagrams", "Project Milestones"],
   },
   {
     step: "Phase 02",
     number: "02",
-    title: "Design & Prototype",
-    tagline: "Crafting ethereal UI and functional interactive flows",
+    title: "UI/UX & Prototyping",
+    tagline: "Designing intuitive interfaces and structured user journeys",
     description:
-      "Our design team creates high-fidelity design systems, intuitive user journeys, and interactive clickable prototypes in Figma. We validate usability, accessibility (WCAG AA), and brand coherence before a single line of code is written.",
-    deliverables: ["Full Interactive Figma Prototype", "Design Token Library", "Component Specification Matrix"],
+      "Our team develops wireframes, interactive screen prototypes, and design guidelines to ensure usability and alignment before engineering commences.",
+    deliverables: ["Screen Wireframes", "Interactive Prototype", "UI Design System"],
   },
   {
     step: "Phase 03",
     number: "03",
-    title: "Engineering & Build",
-    tagline: "Clean, modular code built with modern stacks",
+    title: "Software Engineering",
+    tagline: "Building clean, maintainable software and applications",
     description:
-      "Agile two-week sprints where senior engineers build your product using modular microservices, clean frontends, and automated CI/CD pipelines. Every pull request undergoes peer review and automated linting.",
-    deliverables: ["Modular Codebase Repository", "Continuous Integration Pipelines", "Interactive Staging Environments"],
+      "We develop applications using modular, well-documented codebases with version control and regular milestone reviews to maintain clear progress.",
+    deliverables: ["Modular Codebase Repository", "API Integrations", "Development Staging Setup"],
   },
   {
     step: "Phase 04",
     number: "04",
-    title: "Rigorous QA & Testing",
-    tagline: "Stress-testing every boundary condition",
+    title: "Testing & Quality Verification",
+    tagline: "Verifying stability, compatibility, and core functionality",
     description:
-      "We subject the platform to high-concurrency load testing, security vulnerability scans, cross-device matrix validation, and automated regression suites to guarantee resilience under real-world stress.",
-    deliverables: ["Load Testing Benchmark Report", "Automated Test Coverage Suite", "Security Audit Sign-Off"],
+      "We run systematic functional tests across target platforms and devices to identify and resolve defects prior to launch.",
+    deliverables: ["Test Execution Reports", "Cross-Device Validation", "Defect Remediation"],
   },
   {
     step: "Phase 05",
     number: "05",
-    title: "Production Launch",
-    tagline: "Zero-downtime deployment & global CDN cutover",
+    title: "Deployment & Distribution",
+    tagline: "Deploying production software and publishing applications",
     description:
-      "Orchestrated rollout using blue-green or canary deployments. We monitor DNS propagation, configure global edge caching, verify telemetry feeds, and oversee live user onboarding.",
-    deliverables: ["Production Cloud Environment", "Edge CDN Configuration", "Live Monitoring Dashboards"],
+      "We configure production cloud infrastructure, deploy services, and prepare applications for store distribution according to documented procedures.",
+    deliverables: ["Production Deployment", "Release Builds", "Configuration Runbooks"],
   },
   {
     step: "Phase 06",
     number: "06",
-    title: "Maintain & Evolve",
-    tagline: "Long-term performance, SLA guarantees & continuous upgrades",
+    title: "Maintenance & Updates",
+    tagline: "Providing ongoing application support during business hours",
     description:
-      "Post-launch, our team provides proactive monitoring, security updates, feature iterations, and 24/7 SLA-backed support, ensuring your digital asset continuously leads its industry.",
-    deliverables: ["24/7 Telemetry Monitoring", "SLA Support Agreement", "Quarterly Roadmap Iteration"],
+      "We provide scheduled maintenance, routine bug fixes, dependency updates, and feature enhancements to support your software over its lifecycle.",
+    deliverables: ["Scheduled Updates", "Defect Fixes", "Technical Support"],
   },
 ];
 
 export const TECH_CATEGORIES = [
   {
-    name: "Frontend & Web",
-    items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vue.js", "WebAssembly", "WebGL / Three.js"],
-  },
-  {
-    name: "Mobile Ecosystem",
-    items: ["iOS (Swift / SwiftUI)", "Android (Kotlin / Jetpack)", "Flutter", "React Native", "Native SDKs"],
-  },
-  {
-    name: "Video & OTT",
-    items: ["HLS / MPEG-DASH", "CMAF Low Latency", "FFmpeg Transcoding", "AWS MediaServices", "Shaka Player", "Multi-DRM"],
-  },
-  {
-    name: "Backend & Systems",
-    items: ["Node.js", "Go (Golang)", "Python", "Rust", "PostgreSQL", "Redis", "Kafka", "GraphQL"],
-  },
-  {
-    name: "Cloud & DevOps",
-    items: ["Amazon Web Services", "Google Cloud Platform", "Kubernetes", "Docker", "Terraform", "CI/CD GitHub Actions"],
-  },
-  {
-    name: "Quality & Security",
-    items: ["Playwright", "k6 Load Testing", "OWASP Security", "SonarQube", "Datadog Telemetry", "Sentry"],
+    name: "Core Technologies",
+    items: ["Flutter", "Python", "AWS"],
   },
 ];
 
 export const CONTACT_INFO = {
-  company: "Miaga Technologies LLP",
-  email: "info@mohabbathmatrimony.com",
-  phone: "+91 8590185661",
-  address: "",
-  hours: "Monday – Friday: 9:00 AM – 6:00 PM IST",
-  slaResponseTime: "< 2 hours for critical enterprise requests",
+  company: COMPANY_CONFIG.legalName,
+  email: COMPANY_CONFIG.email,
+  phonePrimary: COMPANY_CONFIG.phones.primary,
+  address: COMPANY_CONFIG.registeredOffice,
+  hours: COMPANY_CONFIG.businessHours,
+  responseWindow: COMPANY_CONFIG.responseWindow,
 };

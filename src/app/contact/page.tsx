@@ -4,31 +4,27 @@ import React, { useState } from "react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { GlassCard } from "@/components/visual/GlassCard";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import { CONTACT_INFO } from "@/lib/constants";
+import { COMPANY_CONFIG } from "@/lib/company";
 import {
   Mail,
   Phone,
   MapPin,
   Clock,
-  ShieldCheck,
   CheckCircle2,
-  Sparkles,
   Send,
   AlertCircle,
   RotateCcw,
 } from "lucide-react";
 
 const PROJECT_TYPES = [
-  "OTT Video Streaming",
-  "Web & Mobile Apps (iOS/Android)",
-  "Custom Enterprise Software",
-  "UI/UX Design Systems",
-  "Testing & QA Automation",
+  "Software Development",
+  "Web & Mobile App Development",
+  "UI/UX Design",
+  "Testing & Quality Assurance",
   "Implementation & Integration",
-  "Software Licensing",
-  "Maintenance & 24/7 SLA",
-  "In-House Proprietary Products",
+  "Software Licensing & Distribution",
+  "Maintenance & Support",
 ];
 
 export default function ContactPage() {
@@ -36,7 +32,7 @@ export default function ContactPage() {
     fullName: "",
     email: "",
     phone: "",
-    projectType: ["OTT Video Streaming"],
+    projectType: ["Software Development"],
     message: "",
   });
 
@@ -68,10 +64,10 @@ export default function ContactPage() {
       errs.fullName = "Please enter your full name.";
     }
     if (!formData.email.trim() || !formData.email.includes("@") || !formData.email.includes(".")) {
-      errs.email = "Please enter a valid business email address.";
+      errs.email = "Please enter a valid email address.";
     }
     if (!formData.message.trim() || formData.message.trim().length < 10) {
-      errs.message = "Please provide at least a brief description of your project (min 10 characters).";
+      errs.message = "Please provide at least a brief description of your inquiry (min 10 characters).";
     }
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -100,7 +96,7 @@ export default function ContactPage() {
 
       setIsSubmitted(true);
     } catch (err: any) {
-      setServerError(err.message || "Something went wrong. Please try again.");
+      setServerError(err.message || "Something went wrong. Please try again or reach out to us directly via email.");
     } finally {
       setIsSubmitting(false);
     }
@@ -111,7 +107,7 @@ export default function ContactPage() {
       fullName: "",
       email: "",
       phone: "",
-      projectType: ["OTT Video Streaming"],
+      projectType: ["Software Development"],
       message: "",
     });
     setErrors({});
@@ -119,13 +115,17 @@ export default function ContactPage() {
     setServerError(null);
   };
 
+  const mailtoLink = `mailto:${CONTACT_INFO.email}?subject=Project%20Inquiry%20-%20${encodeURIComponent(formData.projectType.join(", "))}&body=${encodeURIComponent(
+    `Name: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+  )}`;
+
   return (
     <div className="relative pb-24">
       {/* Page Header */}
       <PageHeader
-        badge="Direct Enterprise Inquiries"
-        title="Start a Project with Miaga"
-        subtitle="Schedule an architectural consultation, request an RFP review, or explore enterprise licensing for our digital platforms."
+        badge="Contact Us"
+        title="Contact Miaga Technologies LLP"
+        subtitle="Get in touch with our team for software development inquiries, application design, project consultations, or general support."
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
@@ -141,12 +141,11 @@ export default function ContactPage() {
                   </div>
 
                   <h3 className="font-display font-bold text-2xl sm:text-3xl text-violet-royal dark:text-pearl-50">
-                    Inquiry Successfully Received
+                    Inquiry Received
                   </h3>
 
                   <p className="text-sm text-text-secondary dark:text-lavender-medium max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to <strong>Miaga Technologies LLP</strong>. An engineering director will
-                    review your project requirements and get in touch within 24 hours.
+                    Thank you for reaching out to <strong>{COMPANY_CONFIG.legalName}</strong>. Our team will review your inquiry and respond within 1–2 working days.
                   </p>
 
                   <div className="p-4 rounded-xl bg-black/5 dark:bg-white/5 border border-amethyst-500/15 text-xs text-left max-w-sm mx-auto space-y-1.5 font-mono">
@@ -159,7 +158,7 @@ export default function ContactPage() {
                       <span className="text-text-primary dark:text-pearl-100">{formData.email}</span>
                     </div>
                     <div>
-                      <span className="text-text-muted">Domains: </span>
+                      <span className="text-text-muted">Services: </span>
                       <span className="text-amethyst-600 dark:text-amethyst-300">
                         {formData.projectType.join(", ")}
                       </span>
@@ -182,17 +181,28 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} noValidate className="space-y-6">
                   <div>
                     <h3 className="font-display font-bold text-xl sm:text-2xl text-violet-royal dark:text-pearl-50 mb-1">
-                      Project Consultation Form
+                      Project Inquiry Form
                     </h3>
                     <p className="text-xs text-text-secondary dark:text-lavender-medium">
-                      All communications are strictly confidential and governed by standard NDA.
+                      Fill out the form below or contact us directly at{" "}
+                      <a href={`mailto:${CONTACT_INFO.email}`} className="text-amethyst-600 dark:text-amethyst-400 underline">
+                        {CONTACT_INFO.email}
+                      </a>.
                     </p>
                   </div>
 
                   {serverError && (
-                    <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/25 text-xs text-rose-600 dark:text-rose-400 flex items-center gap-2">
-                      <AlertCircle className="w-4 h-4 shrink-0" />
-                      <span>{serverError}</span>
+                    <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/25 text-xs text-rose-600 dark:text-rose-400 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 shrink-0" />
+                        <span>{serverError}</span>
+                      </div>
+                      <a
+                        href={mailtoLink}
+                        className="font-semibold underline hover:text-rose-700 shrink-0"
+                      >
+                        Send via Email Client →
+                      </a>
                     </div>
                   )}
 
@@ -204,7 +214,7 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="text"
-                        placeholder="e.g. Elena Vance"
+                        placeholder="Your full name"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         className={`w-full px-4 py-2.5 rounded-xl text-sm bg-white/60 dark:bg-violet-deep/60 border text-violet-royal dark:text-pearl-50 placeholder:text-text-muted focus:outline-none transition-all ${
@@ -220,7 +230,7 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-xs font-semibold text-violet-royal dark:text-pearl-100 mb-1.5">
-                        Corporate Email <span className="text-rose-500">*</span>
+                        Email Address <span className="text-rose-500">*</span>
                       </label>
                       <input
                         type="email"
@@ -246,7 +256,7 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="tel"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="+91 XXXXX XXXXX"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl text-sm bg-white/60 dark:bg-violet-deep/60 border border-amethyst-500/20 focus:border-amethyst-500 focus:ring-2 focus:ring-amethyst-500/20 text-violet-royal dark:text-pearl-50 placeholder:text-text-muted focus:outline-none transition-all"
@@ -256,7 +266,7 @@ export default function ContactPage() {
                   {/* Project Type Multi-Select Pills */}
                   <div>
                     <label className="block text-xs font-semibold text-violet-royal dark:text-pearl-100 mb-2">
-                      Project Domains (Select all that apply)
+                      Services of Interest (Select all that apply)
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {PROJECT_TYPES.map((type) => {
@@ -283,11 +293,11 @@ export default function ContactPage() {
                   {/* Message */}
                   <div>
                     <label className="block text-xs font-semibold text-violet-royal dark:text-pearl-100 mb-1.5">
-                      Project Overview & Boundaries <span className="text-rose-500">*</span>
+                      Inquiry Details <span className="text-rose-500">*</span>
                     </label>
                     <textarea
                       rows={4}
-                      placeholder="Briefly describe your objectives, target audience, concurrency targets, or specific platform requirements..."
+                      placeholder="Please share an overview of your requirements, current scope, or questions..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className={`w-full px-4 py-3 rounded-xl text-sm bg-white/60 dark:bg-violet-deep/60 border text-violet-royal dark:text-pearl-50 placeholder:text-text-muted focus:outline-none transition-all ${
@@ -301,28 +311,40 @@ export default function ContactPage() {
                     )}
                   </div>
 
-                  {/* Submit Button */}
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    isLoading={isSubmitting}
-                    className="w-full"
-                    rightIcon={<Send className="w-4 h-4" />}
-                  >
-                    Submit Project Inquiry
-                  </Button>
+                  {/* Action Buttons: Submit Form & Direct Mailto Link */}
+                  <div className="space-y-3">
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      size="lg"
+                      isLoading={isSubmitting}
+                      className="w-full"
+                      rightIcon={<Send className="w-4 h-4" />}
+                    >
+                      Submit Inquiry
+                    </Button>
+
+                    <div className="text-center">
+                      <span className="text-xs text-text-muted">Or email us directly at </span>
+                      <a
+                        href={mailtoLink}
+                        className="text-xs font-medium text-amethyst-600 dark:text-amethyst-400 hover:underline"
+                      >
+                        {CONTACT_INFO.email}
+                      </a>
+                    </div>
+                  </div>
                 </form>
               )}
             </GlassCard>
           </div>
 
-          {/* Right: Direct Information & Response Guarantees */}
+          {/* Right: Direct Information & Working Hours */}
           <div className="lg:col-span-5 space-y-6">
             <GlassCard className="p-8 border-amethyst-500/25 space-y-6">
               <div>
                 <h3 className="font-display font-bold text-xl text-violet-royal dark:text-pearl-50 mb-1">
-                  Corporate Coordinates
+                  Contact Information
                 </h3>
                 <p className="text-xs text-text-secondary dark:text-lavender-medium">
                   {CONTACT_INFO.company}
@@ -336,7 +358,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
-                      Official Inquiries & RFPs
+                      Email Address
                     </span>
                     <a
                       href={`mailto:${CONTACT_INFO.email}`}
@@ -353,29 +375,27 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
-                      Telephone & SLA Line
+                      Telephone
                     </span>
-                    <span className="font-mono text-violet-royal dark:text-pearl-100 font-medium">
-                      {CONTACT_INFO.phone}
-                    </span>
+                    <div className="font-mono text-violet-royal dark:text-pearl-100 font-medium">
+                      {CONTACT_INFO.phonePrimary}
+                    </div>
                   </div>
                 </div>
 
-                {CONTACT_INFO.address && (
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20 shrink-0">
-                      <MapPin className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
-                        Registered Office
-                      </span>
-                      <span className="text-text-secondary dark:text-lavender-medium text-xs leading-relaxed block">
-                        {CONTACT_INFO.address}
-                      </span>
-                    </div>
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20 shrink-0">
+                    <MapPin className="w-4 h-4" />
                   </div>
-                )}
+                  <div>
+                    <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
+                      Registered Office
+                    </span>
+                    <span className="text-text-secondary dark:text-lavender-medium text-xs leading-relaxed block">
+                      {CONTACT_INFO.address}
+                    </span>
+                  </div>
+                </div>
 
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20 shrink-0">
@@ -383,25 +403,15 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
-                      Operating Hours
+                      Business Hours
                     </span>
                     <span className="text-text-secondary dark:text-lavender-medium text-xs block">
                       {CONTACT_INFO.hours}
                     </span>
+                    <span className="text-amethyst-600 dark:text-amethyst-300 text-[11px] block mt-0.5 font-medium">
+                      {CONTACT_INFO.responseWindow}
+                    </span>
                   </div>
-                </div>
-              </div>
-
-              {/* SLA Response Guarantee */}
-              <div className="p-4 rounded-xl bg-pearl-100 dark:bg-violet-cosmic border border-amethyst-500/20 flex items-center gap-3 text-xs">
-                <ShieldCheck className="w-5 h-5 text-amethyst-500 shrink-0" />
-                <div>
-                  <span className="font-bold text-violet-royal dark:text-pearl-100 block">
-                    Enterprise SLA Commitment
-                  </span>
-                  <span className="text-[11px] text-text-muted">
-                    Response time guarantee: {CONTACT_INFO.slaResponseTime}
-                  </span>
                 </div>
               </div>
             </GlassCard>

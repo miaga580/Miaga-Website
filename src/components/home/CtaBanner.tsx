@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { COMPANY_CONFIG } from "@/lib/company";
 
 export const CtaBanner: React.FC = () => {
   return (
@@ -22,15 +23,15 @@ export const CtaBanner: React.FC = () => {
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold uppercase tracking-wider text-pearl-100 mb-6 backdrop-blur-md">
               <Sparkles className="w-3.5 h-3.5 text-amethyst-300" />
-              Initiate Collaboration
+              Get in Touch
             </div>
 
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-6">
-              Ready to engineer your next mission-critical digital reality?
+              Have a software or application project to discuss?
             </h2>
 
             <p className="text-base sm:text-lg text-pearl-300 leading-relaxed max-w-2xl mb-8">
-              Whether you require a high-throughput OTT streaming platform, a native mobile app ecosystem, or bespoke enterprise software, Miaga Technologies LLP delivers world-class execution.
+              Whether you need custom software development, mobile application design, or ongoing platform maintenance, {COMPANY_CONFIG.legalName} is ready to assist.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -41,7 +42,7 @@ export const CtaBanner: React.FC = () => {
                 className="bg-white text-violet-royal hover:bg-pearl-100 hover:text-violet-royal shadow-xl"
                 rightIcon={<ArrowRight className="w-4 h-4" />}
               >
-                Schedule Architecture Consultation
+                Contact Us
               </Button>
 
               <Button
@@ -50,7 +51,7 @@ export const CtaBanner: React.FC = () => {
                 size="lg"
                 className="bg-white/10 text-white hover:bg-white/20 border-white/25"
               >
-                Explore All Services
+                Explore Services
               </Button>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { COMPANY_CONFIG } from "@/lib/company";
 
 export async function POST(request: Request) {
   try {
@@ -15,24 +16,22 @@ export async function POST(request: Request) {
 
     if (!email || typeof email !== "string" || !email.includes("@")) {
       return NextResponse.json(
-        { error: "Please provide a valid corporate email address." },
+        { error: "Please provide a valid email address." },
         { status: 400 }
       );
     }
 
     if (!message || typeof message !== "string" || message.trim().length < 5) {
       return NextResponse.json(
-        { error: "Please provide a brief description of your project requirements." },
+        { error: "Please provide a brief description of your requirements." },
         { status: 400 }
       );
     }
 
-    // In a live system, this sends to an email or CRM pipeline.
-    // For production marketing website, we return a structured success confirmation.
     return NextResponse.json(
       {
         success: true,
-        message: "Thank you for reaching out to Miaga Technologies LLP. An engineering director will review your requirements and respond within 24 hours.",
+        message: `Thank you for reaching out to ${COMPANY_CONFIG.legalName}. We have received your inquiry and will respond within 1–2 working days.`,
         receivedData: {
           fullName: fullName.trim(),
           email: email.trim(),
