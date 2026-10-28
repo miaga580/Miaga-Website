@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { GlassCard } from "@/components/visual/GlassCard";
 import { Badge } from "@/components/ui/Badge";
 import { MOHABBATH_PORTFOLIO } from "@/lib/constants";
@@ -40,9 +41,15 @@ export const Portfolio: React.FC = () => {
               </a>
             </div>
             
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amethyst-500/20 to-violet-royal/20 flex items-center justify-center border border-amethyst-500/30">
-                <Smartphone className="w-6 h-6 text-amethyst-600 dark:text-amethyst-400" />
+            <div className="flex items-center gap-3.5 mb-6">
+              <div className="w-14 h-14 rounded-2xl overflow-hidden bg-white flex items-center justify-center border border-amethyst-500/20 shadow-md p-1 shrink-0">
+                <Image
+                  src="/mohabbath-logo.png"
+                  alt="Mohabbath Logo"
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-violet-royal dark:text-pearl-50">

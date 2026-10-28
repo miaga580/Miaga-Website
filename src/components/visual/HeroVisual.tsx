@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Smartphone,
   Layers,
@@ -102,9 +103,15 @@ export const HeroVisual: React.FC = () => {
               {/* Top App Header */}
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-amethyst-600 to-pink-500 flex items-center justify-center text-white text-[10px] font-bold shadow-sm">
-                      M
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg overflow-hidden bg-white shadow-sm shrink-0 border border-black/5 flex items-center justify-center p-0.5">
+                      <Image
+                        src="/mohabbath-logo.png"
+                        alt="Mohabbath Logo"
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     <div>
                       <span className="block text-[11px] font-display font-bold text-violet-royal dark:text-pearl-50 leading-none">
@@ -115,19 +122,25 @@ export const HeroVisual: React.FC = () => {
                       </span>
                     </div>
                   </div>
-                  <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-medium">
-                    Verified App
+                  <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-amethyst-500/15 text-amethyst-600 dark:text-amethyst-300 font-medium">
+                    In-House
                   </span>
                 </div>
 
                 {/* Profile Discovery Card Preview */}
                 <div className="rounded-2xl overflow-hidden bg-gradient-to-b from-amethyst-100 to-pearl-200 dark:from-violet-900/40 dark:to-violet-950/40 border border-amethyst-500/20 p-3 space-y-2.5 relative">
-                  <div className="aspect-[4/3] rounded-xl bg-gradient-to-tr from-amethyst-500/30 via-pink-400/20 to-sky-400/30 flex flex-col items-center justify-center relative overflow-hidden">
-                    <div className="w-12 h-12 rounded-full bg-white/80 dark:bg-violet-deep/80 backdrop-blur-md flex items-center justify-center text-amethyst-600 dark:text-amethyst-300 shadow-md">
-                      <Heart className="w-6 h-6 fill-amethyst-500 text-amethyst-500" />
+                  <div className="aspect-[4/3] rounded-xl bg-white dark:bg-black/40 flex flex-col items-center justify-center relative overflow-hidden border border-black/5 dark:border-white/5 p-2">
+                    <div className="w-16 h-16 relative flex items-center justify-center">
+                      <Image
+                        src="/mohabbath-logo.png"
+                        alt="Mohabbath Logo"
+                        width={64}
+                        height={64}
+                        className="object-contain"
+                      />
                     </div>
-                    <span className="text-[9px] text-violet-royal dark:text-pearl-100 font-semibold mt-1.5">
-                      Tailored Matchmaking
+                    <span className="text-[10px] text-violet-royal dark:text-pearl-100 font-bold mt-1 tracking-wider uppercase font-display">
+                      MOHABBATH
                     </span>
                     <span className="text-[7.5px] text-text-muted">
                       Flutter • Cross-Platform UI
@@ -181,17 +194,23 @@ export const HeroVisual: React.FC = () => {
           </div>
         </div>
 
-        {/* Floating Bottom Accent Card: Verified Delivery Badge */}
-        <div className="absolute -bottom-2 -left-2 sm:-left-4 z-30 rounded-2xl bg-white/90 dark:bg-[#160d2e]/90 backdrop-blur-xl border border-amethyst-500/25 p-3.5 shadow-xl flex items-center gap-3 max-w-[240px] animate-float-slow">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-white flex items-center justify-center shrink-0 shadow-md">
-            <ShieldCheck className="w-5 h-5" />
+        {/* Floating Bottom Accent Card: In-House Ownership Badge */}
+        <div className="absolute -bottom-2 -left-2 sm:-left-4 z-30 rounded-2xl bg-white/90 dark:bg-[#160d2e]/90 backdrop-blur-xl border border-amethyst-500/25 p-3.5 shadow-xl flex items-center gap-3 max-w-[250px] animate-float-slow">
+          <div className="w-10 h-10 rounded-xl overflow-hidden bg-white shrink-0 shadow-md border border-black/5 flex items-center justify-center p-0.5">
+            <Image
+              src="/mohabbath-logo.png"
+              alt="Mohabbath Logo"
+              width={40}
+              height={40}
+              className="w-full h-full object-contain"
+            />
           </div>
           <div>
             <span className="block text-xs font-bold text-violet-royal dark:text-pearl-50">
-              In-House Production
+              In-House Application
             </span>
             <span className="text-[10px] text-text-muted block mt-0.5">
-              Owned & run by Miaga Technologies LLP
+              Owned & operated by Miaga Technologies LLP
             </span>
           </div>
         </div>
