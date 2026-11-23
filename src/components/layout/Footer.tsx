@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
               <CrescentLogo size={44} showLlpBadge={true} />
             </Link>
             <p className="text-sm text-text-secondary dark:text-lavender-medium max-w-md leading-relaxed mt-2">
-              {COMPANY_CONFIG.legalName} is a software and app development limited liability partnership. We build custom software solutions, responsive web and mobile applications, and maintain digital platforms for our clients.
+              {COMPANY_CONFIG.legalName} is a mobile app and software development limited liability partnership. We build custom software solutions, responsive web and mobile applications, and maintain digital platforms for our clients.
             </p>
 
             <div className="mt-2 space-y-1.5 text-xs text-text-secondary dark:text-lavender-medium">
@@ -32,6 +32,15 @@ export const Footer: React.FC = () => {
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-amethyst-500 shrink-0" />
                 <span>{COMPANY_CONFIG.phones.primary}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-amethyst-500 shrink-0" />
+                <a
+                  href={`mailto:${COMPANY_CONFIG.email}`}
+                  className="hover:text-amethyst-600 dark:hover:text-amethyst-300 transition-colors"
+                >
+                  {COMPANY_CONFIG.email}
+                </a>
               </div>
             </div>
           </div>
@@ -85,10 +94,10 @@ export const Footer: React.FC = () => {
               </ul>
             </div>
 
-            {/* Column 3: Corporate & Inquiries */}
+            {/* Column 3: Corporate & Legal Links */}
             <div>
               <h4 className="text-xs uppercase tracking-widest font-semibold text-violet-royal dark:text-pearl-100 mb-4">
-                Company
+                Company & Legal
               </h4>
               <ul className="space-y-2.5 text-xs text-text-secondary dark:text-lavender-medium">
                 <li>
@@ -98,17 +107,17 @@ export const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link href="/contact" className="hover:text-amethyst-600 dark:hover:text-amethyst-300 transition-colors">
-                    Contact Us
+                    Contact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacy-policy" className="hover:text-amethyst-600 dark:hover:text-amethyst-300 transition-colors">
+                  <Link href="/privacy" className="hover:text-amethyst-600 dark:hover:text-amethyst-300 transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms-and-conditions" className="hover:text-amethyst-600 dark:hover:text-amethyst-300 transition-colors">
-                    Terms & Conditions
+                  <Link href="/eula" className="hover:text-amethyst-600 dark:hover:text-amethyst-300 transition-colors">
+                    Terms of Use (EULA)
                   </Link>
                 </li>
                 <li className="pt-2">
@@ -125,24 +134,32 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Tier: Strict Copyright & Legal Navigation Links */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted dark:text-lavender-medium/70">
-          <div className="flex items-center gap-2 text-center sm:text-left font-medium">
-            <span>© {COMPANY_CONFIG.legalName}. All rights reserved.</span>
+        {/* Bottom Tier: Apple Developer & App Store compliant footer line */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-text-muted dark:text-lavender-medium/70">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-1 sm:gap-2 text-center sm:text-left font-medium">
+            <span>{COMPANY_CONFIG.legalName} | LLPIN: {COMPANY_CONFIG.llpin} | © 2026</span>
+            <span className="hidden sm:inline">•</span>
+            <span className="text-[11px] font-normal">{COMPANY_CONFIG.registeredOffice}</span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5 shrink-0">
             <Link
-              href="/privacy-policy"
+              href="/privacy"
               className="hover:text-amethyst-600 dark:hover:text-amethyst-300 transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
-              href="/terms-and-conditions"
+              href="/eula"
               className="hover:text-amethyst-600 dark:hover:text-amethyst-300 transition-colors"
             >
-              Terms & Conditions
+              Terms of Use (EULA)
+            </Link>
+            <Link
+              href="/contact"
+              className="hover:text-amethyst-600 dark:hover:text-amethyst-300 transition-colors"
+            >
+              Contact
             </Link>
           </div>
         </div>

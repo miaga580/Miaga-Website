@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services",
     "/about",
     "/contact",
+    "/privacy",
+    "/eula",
     "/privacy-policy",
     "/terms-and-conditions",
   ];
@@ -15,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
-    changeFrequency: "monthly" as const,
-    priority: route === "" ? 1.0 : route === "/services" ? 0.9 : 0.8,
+    changeFrequency: "weekly" as const,
+    priority: route === "" ? 1.0 : route === "/privacy" || route === "/eula" || route === "/contact" ? 0.9 : 0.8,
   }));
 }

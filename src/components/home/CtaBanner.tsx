@@ -54,6 +54,13 @@ export const CtaBanner: React.FC = () => {
                 Explore Services
               </Button>
             </div>
+
+            {/* Direct Contact Details Block */}
+            <div className="mt-8 pt-6 border-t border-white/15 flex flex-wrap items-center gap-6 text-xs text-pearl-200 font-mono">
+              <div>Email: <a href={`mailto:${COMPANY_CONFIG.email}`} className="text-white underline">{COMPANY_CONFIG.email}</a></div>
+              <div>Phone: <span className="text-white">{COMPANY_CONFIG.phones.primary}</span></div>
+              <div>Address: <span className="text-white font-sans">{COMPANY_CONFIG.registeredOffice}</span></div>
+            </div>
           </div>
         </div>
       </div>

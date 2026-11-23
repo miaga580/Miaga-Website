@@ -238,6 +238,8 @@ export const TECH_CATEGORIES = [
 
 export const CONTACT_INFO = {
   company: COMPANY_CONFIG.legalName,
+  llpin: COMPANY_CONFIG.llpin,
+  designatedPartner: COMPANY_CONFIG.designatedPartner,
   email: COMPANY_CONFIG.email,
   phonePrimary: COMPANY_CONFIG.phones.primary,
   address: COMPANY_CONFIG.registeredOffice,

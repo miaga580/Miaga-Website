@@ -120,6 +120,15 @@ export default function AboutPage() {
                   </span>
                 </div>
 
+                <div className="flex items-start justify-between py-1 border-b border-black/5 dark:border-white/5">
+                  <span className="text-text-muted flex items-center gap-1.5">
+                    <Hash className="w-3.5 h-3.5 text-amethyst-500" /> LLPIN:
+                  </span>
+                  <span className="font-mono font-medium text-text-primary dark:text-pearl-100 text-right">
+                    {COMPANY_CONFIG.llpin}
+                  </span>
+                </div>
+
                 <div className="flex flex-col gap-1 py-1 border-b border-black/5 dark:border-white/5">
                   <span className="text-text-muted flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-amethyst-500" /> Registered Office:

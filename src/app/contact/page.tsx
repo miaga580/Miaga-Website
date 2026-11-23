@@ -15,11 +15,14 @@ import {
   Send,
   AlertCircle,
   RotateCcw,
+  Building,
+  User,
+  Hash,
 } from "lucide-react";
 
 const PROJECT_TYPES = [
+  "Mobile App Development",
   "Software Development",
-  "Web & Mobile App Development",
   "UI/UX Design",
   "Testing & Quality Assurance",
   "Implementation & Integration",
@@ -32,7 +35,7 @@ export default function ContactPage() {
     fullName: "",
     email: "",
     phone: "",
-    projectType: ["Software Development"],
+    projectType: ["Mobile App Development"],
     message: "",
   });
 
@@ -107,7 +110,7 @@ export default function ContactPage() {
       fullName: "",
       email: "",
       phone: "",
-      projectType: ["Software Development"],
+      projectType: ["Mobile App Development"],
       message: "",
     });
     setErrors({});
@@ -115,7 +118,7 @@ export default function ContactPage() {
     setServerError(null);
   };
 
-  const mailtoLink = `mailto:${CONTACT_INFO.email}?subject=Project%20Inquiry%20-%20${encodeURIComponent(formData.projectType.join(", "))}&body=${encodeURIComponent(
+  const mailtoLink = `mailto:${CONTACT_INFO.email}?subject=Inquiry%20-%20${encodeURIComponent(formData.projectType.join(", "))}&body=${encodeURIComponent(
     `Name: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
   )}`;
 
@@ -125,7 +128,7 @@ export default function ContactPage() {
       <PageHeader
         badge="Contact Us"
         title="Contact Miaga Technologies LLP"
-        subtitle="Get in touch with our team for software development inquiries, application design, project consultations, or general support."
+        subtitle="Get in touch with our team for mobile app and software development inquiries, technical support, or partnership discussions."
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
@@ -181,11 +184,11 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} noValidate className="space-y-6">
                   <div>
                     <h3 className="font-display font-bold text-xl sm:text-2xl text-violet-royal dark:text-pearl-50 mb-1">
-                      Project Inquiry Form
+                      Project & Support Inquiry
                     </h3>
                     <p className="text-xs text-text-secondary dark:text-lavender-medium">
-                      Fill out the form below or contact us directly at{" "}
-                      <a href={`mailto:${CONTACT_INFO.email}`} className="text-amethyst-600 dark:text-amethyst-400 underline">
+                      Fill out the form below or write to us directly at{" "}
+                      <a href={`mailto:${CONTACT_INFO.email}`} className="text-amethyst-600 dark:text-amethyst-400 underline font-mono">
                         {CONTACT_INFO.email}
                       </a>.
                     </p>
@@ -234,7 +237,7 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="email"
-                        placeholder="name@company.com"
+                        placeholder="name@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className={`w-full px-4 py-2.5 rounded-xl text-sm bg-white/60 dark:bg-violet-deep/60 border text-violet-royal dark:text-pearl-50 placeholder:text-text-muted focus:outline-none transition-all ${
@@ -266,7 +269,7 @@ export default function ContactPage() {
                   {/* Project Type Multi-Select Pills */}
                   <div>
                     <label className="block text-xs font-semibold text-violet-royal dark:text-pearl-100 mb-2">
-                      Services of Interest (Select all that apply)
+                      Services of Interest
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {PROJECT_TYPES.map((type) => {
@@ -297,7 +300,7 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       rows={4}
-                      placeholder="Please share an overview of your requirements, current scope, or questions..."
+                      placeholder="Please share an overview of your requirements, questions, or support inquiry..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className={`w-full px-4 py-3 rounded-xl text-sm bg-white/60 dark:bg-violet-deep/60 border text-violet-royal dark:text-pearl-50 placeholder:text-text-muted focus:outline-none transition-all ${
@@ -328,7 +331,7 @@ export default function ContactPage() {
                       <span className="text-xs text-text-muted">Or email us directly at </span>
                       <a
                         href={mailtoLink}
-                        className="text-xs font-medium text-amethyst-600 dark:text-amethyst-400 hover:underline"
+                        className="text-xs font-medium text-amethyst-600 dark:text-amethyst-400 hover:underline font-mono"
                       >
                         {CONTACT_INFO.email}
                       </a>
@@ -339,12 +342,13 @@ export default function ContactPage() {
             </GlassCard>
           </div>
 
-          {/* Right: Direct Information & Working Hours */}
+          {/* Right: Direct Coordinates & About/Company Details Block */}
           <div className="lg:col-span-5 space-y-6">
+            {/* Direct Coordinates */}
             <GlassCard className="p-8 border-amethyst-500/25 space-y-6">
               <div>
                 <h3 className="font-display font-bold text-xl text-violet-royal dark:text-pearl-50 mb-1">
-                  Contact Information
+                  Contact Coordinates
                 </h3>
                 <p className="text-xs text-text-secondary dark:text-lavender-medium">
                   {CONTACT_INFO.company}
@@ -354,15 +358,29 @@ export default function ContactPage() {
               <div className="space-y-4 text-xs sm:text-sm">
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20 shrink-0">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
+                      Registered Address
+                    </span>
+                    <span className="text-text-primary dark:text-pearl-100 text-xs leading-relaxed block font-medium">
+                      Miaga Technologies LLP, 3F, Harvard, Skyline, Edachira, Kakkanad, Ernakulam 682030, Kerala, India
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20 shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
                     <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
-                      Email Address
+                      Official Email
                     </span>
                     <a
                       href={`mailto:${CONTACT_INFO.email}`}
-                      className="font-medium text-violet-royal dark:text-pearl-100 hover:text-amethyst-600 hover:underline"
+                      className="font-medium font-mono text-violet-royal dark:text-pearl-100 hover:text-amethyst-600 hover:underline"
                     >
                       {CONTACT_INFO.email}
                     </a>
@@ -375,25 +393,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
-                      Telephone
+                      Phone Number
                     </span>
                     <div className="font-mono text-violet-royal dark:text-pearl-100 font-medium">
                       {CONTACT_INFO.phonePrimary}
                     </div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-amethyst-500/10 text-amethyst-600 dark:text-amethyst-300 border border-amethyst-500/20 shrink-0">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-text-muted block uppercase tracking-wider font-semibold">
-                      Registered Office
-                    </span>
-                    <span className="text-text-secondary dark:text-lavender-medium text-xs leading-relaxed block">
-                      {CONTACT_INFO.address}
-                    </span>
                   </div>
                 </div>
 
@@ -413,6 +417,51 @@ export default function ContactPage() {
                     </span>
                   </div>
                 </div>
+              </div>
+            </GlassCard>
+
+            {/* About / Company Details Block */}
+            <GlassCard className="p-6 border-amethyst-500/25 space-y-4">
+              <div className="flex items-center gap-2">
+                <div className="p-1.5 rounded-lg bg-amethyst-500/15 text-amethyst-600 dark:text-amethyst-300">
+                  <Building className="w-4 h-4" />
+                </div>
+                <h4 className="font-display font-bold text-base text-violet-royal dark:text-pearl-50">
+                  About & Company Details
+                </h4>
+              </div>
+
+              <div className="space-y-2.5 text-xs">
+                <div className="p-3 rounded-xl bg-pearl-100/70 dark:bg-black/30 border border-amethyst-500/15 space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-text-muted">Legal Entity:</span>
+                    <span className="font-semibold text-text-primary dark:text-pearl-100">
+                      {COMPANY_CONFIG.legalName}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-text-muted">LLPIN:</span>
+                    <span className="font-mono font-bold text-violet-royal dark:text-pearl-50">
+                      {COMPANY_CONFIG.llpin}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-text-muted">Designated Partner:</span>
+                    <span className="font-medium text-text-primary dark:text-pearl-100">
+                      {COMPANY_CONFIG.designatedPartner}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-text-muted">Business Form:</span>
+                    <span className="text-text-primary dark:text-pearl-100">
+                      Limited Liability Partnership
+                    </span>
+                  </div>
+                </div>
+
+                <p className="text-[11px] text-text-secondary dark:text-lavender-medium leading-relaxed">
+                  Miaga Technologies LLP is an Indian digital engineering firm specializing in mobile application and custom software development, including our in-house matchmaking product Mohabbath Matrimony.
+                </p>
               </div>
             </GlassCard>
           </div>
