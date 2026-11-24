@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { COMPANY_CONFIG } from "@/lib/company";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mbgopbqb";
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -26,6 +28,34 @@ export async function POST(request: Request) {
         { error: "Please provide a brief description of your requirements." },
         { status: 400 }
       );
+    }
+
+    // Forward to Formspree endpoint so emails land in Gmail
+    const formspreePayload = {
+      name: fullName.trim(),
+      email: email.trim(),
+      phone: phone ? phone.trim() : "Not provided",
+      services: Array.isArray(projectType) ? projectType.join(", ") : projectType,
+      message: message.trim(),
+      _subject: `New Contact Inquiry from ${fullName.trim()} - Miaga Technologies`,
+    };
+
+    try {
+      const formspreeRes = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formspreePayload),
+      });
+
+      if (!formspreeRes.ok) {
+        const errData = await formspreeRes.json().catch(() => ({}));
+        console.error("Formspree forwarding error:", errData);
+      }
+    } catch (err) {
+      console.error("Failed to forward inquiry to Formspree:", err);
     }
 
     return NextResponse.json(
